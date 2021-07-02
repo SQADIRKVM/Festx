@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration</title>
+    <link href='https://fonts.googleapis.com/css?family=Nunito:400,300' rel='stylesheet' type='text/css'>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="loader-container">
+        <div class="loader"></div>
+    </div>
+    <form id="my-form" action="" target="_self">
+
+        <h1>FESTx Registration Form</h1>
+        <fieldset>
+            <legend><span class="number">1</span>Instructions</legend>
+            <ul>
+                <li>Total 5 steps are there for registration process</li>
+                <li>Dont use your real name in competition items except typing and quiz</li>
+                <li>Use Registration id for files name</li>
+                <li>Work must be done by your self</li>
+                <li>Dont seek help from others</li>
+                <li>Dont forgot to copy Registration Id</li>
+                <li>Cheating is not allowed</li>
+                <li>If we notice any type of cheating. You will be disqualified from the event</li>
+            </ul> 
+        </fieldset>
+        <fieldset>
+            <legend><span class="number">2</span>Personal info</legend>
+            <input type="text" name="entry.1018903506" placeholder="Enter Your Name" value="" required>
+            <label class="fieldlabels">School Name: *</label>
+            <input type="text" name="entry.1728158041" placeholder="Enter Your School Name" required>
+            <label class="fieldlabels">Class : *</label>
+            <input type="text" name="entry.1374384966" placeholder="Enter Your Class" required>
+
+            <label class="fieldlabels">WhatsApp Number: *</label>
+            <input type="tel" name="entry.1770428954" placeholder="Enter WhatsApp Number" required>
+            <label class="fieldlabels">Email ID</label>
+            <input type="email" name="entry.736002997" placeholder="Enter Your Email Id">
+        </fieldset>
+
+        <fieldset>
+            <legend><span class="number">3</span>Items List</legend>
+            <label>Competitions List</label>
+            <br>
+
+
+
+            <input class="form-check-input" type="checkbox" value="Speed Typing" id="checkbox" name="entry.1999723624">
+            <label class="light" for="defaultCheck1">
+                Speed Typing
+            </label>
+            <br>
+
+            <input class="form-check-input" type="checkbox" value="Graphics Designing" id="defaultCheck1"
+                name="entry.1999723624">
+            <label class="light for=" defaultCheck1">
+                Graphics Designing
+            </label>
+            <br>
+
+
+            <input class="form-check-input" type="checkbox" value="Video Editing" id="defaultCheck1"
+                name="entry.1999723624">
+            <label class="light" for="defaultCheck1">
+                Video Editing
+            </label>
+            <br>
+
+
+            <input class="form-check-input" type="checkbox" value="Animation Video Making(2D/3D)" id="defaultCheck1"
+                name="entry.1999723624">
+            <label class="light" for="defaultCheck1">
+                Animation Video Making(2D/3D)
+            </label>
+            <br>
+
+
+            <input class="form-check-input" type="checkbox" value="Logo Designing" id="defaultCheck1"
+                name="entry.1999723624">
+            <label class="light" for="defaultCheck1">
+                Logo Designing
+            </label>
+            <br>
+
+
+            <input class="form-check-input" type="checkbox" value="Speech" id="defaultCheck1" name="entry.1999723624">
+            <label class="light" for="defaultCheck1">
+                Speech
+            </label>
+            <br>
+
+
+            <input class="form-check-input" type="checkbox" value="Content Writing" id="defaultCheck1"
+                name="entry.1999723624">
+            <label class="light" for="defaultCheck1">
+                Content Writing
+            </label>
+            <br>
+
+
+            <input class="form-check-input" type="checkbox" value="Digital Painting/Vector Art" id="defaultCheck1"
+                name="entry.1999723624">
+            <label class="light" for="defaultCheck1">
+                Digital Painting/Vector Art
+            </label>
+            <br>
+
+
+            <input class="form-check-input" type="checkbox" value="Photography" id="defaultCheck1"
+                name="entry.1999723624">
+            <label class="light" for="defaultCheck1">
+                Photography
+            </label>
+            <br>
+
+
+            <input class="form-check-input" type="checkbox" value="Collage Making" id="defaultCheck1"
+                name="entry.1999723624">
+            <label class="light" for="defaultCheck1">
+                Collage Making
+            </label>
+            <br>
+
+
+            <input class="form-check-input" type="checkbox" value="Photo Editing" id="defaultCheck1"
+                name="entry.1999723624">
+            <label class="light" for="defaultCheck1">
+                Photo Editing
+            </label>
+
+        </fieldset>
+        <fieldset>
+            <legend><span class="number">4</span>Captcha </legend>
+            <p class="small text-muted font-italic mb-4">Enter the code below that display here</p>
+            <h5 style="font-size: 25px; color: #5fcf80; font-weight: bolder; text-align: center;" id="register"></h5>
+            <input name="entry.1155074866" value="" id="inputId" type="text"  required>
+            <input type="checkbox" required>
+            <small style="font-size: 10; color:grey;" for="">By clicking the 'Register' button, you confirm that you read all the
+                Instructions</small>
+            <button onclick="myFunction()" type="submit">Register</button>
+        </fieldset>
+        
+        
+        <fieldset>
+            <legend><span class="number">5</span>Registration ID </legend>
+            <p style="color: gray;">Copy this Registration Id or Take Screenshot</p>
+            <div style="font-size: 25px; color: #5fcf80; font-weight: bolder; text-align: center;" id="divID"></div>
+            
+        </fieldset>
+    </form>
+    <script>
+        // Preloder
+        $(window).on("load",function(){
+            $(".loader-container").fadeOut(1000);
+        });
+        // preloder ended
+        //selector from your HTML form
+        $('#my-form').submit(function (e) {
+            //prevent the form from submiting so we can post to the google form
+            e.preventDefault();
+            //AJAX request
+            $.ajax({
+                url: 'https://docs.google.com/forms/u/0/d/e/1FAIpQLSfgURU5XWdufE0Fz6cBz9BBN6rVxNlGFxZKekHmGwYk3bCrMw/formResponse',     //The public Google Form url, but replace /view with /formResponse
+                data: $('#my-form').serialize(), //Nifty jquery function that gets all the input data
+                type: 'POST', //tells ajax to post the data to the url
+                dataType: "json", //the standard data type for most ajax requests
+                statusCode: { //the status code from the POST request
+                    0: function (data) { //0 is when Google gives a CORS error, don't worry it went through
+                        //success
+                        const Toast = Swal.mixin({
+                            toast: true,
+                            position: 'top-end',
+                            showConfirmButton: false,
+                            timer: 3000,
+                            timerProgressBar: true,
+                            didOpen: (toast) => {
+                                toast.addEventListener('mouseenter', Swal.stopTimer)
+                                toast.addEventListener('mouseleave', Swal.resumeTimer)
+                            }
+                        })
+
+                        Toast.fire({
+                            icon: 'success',
+                            title: 'Registered Successfully'
+                        })
+                        // $('#form-success').text('hooray!');
+                    },
+                    200: function (data) {//200 is a success code. it went through!
+                        //success
+                        $('#form-success').text('hooray!');
+                    },
+                    403: function (data) {//403 is when something went wrong and the submission didn't go through
+                        //error
+                        alert('Oh no! something went wrong. we should check our code to make sure everything matches with Google');
+                    }
+                }
+            });
+        });
+    </script>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script type="text/javascript" src="script.js"></script>
+</body>
+
+</html>
